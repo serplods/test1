@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивный Аккордеон</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Часто задаваемые вопросы</h1>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Что такое аккордеон?</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Аккордеон — это элемент интерфейса, который позволяет скрывать и отображать контент при клике на заголовок. Это помогает организовать информацию компактно и удобно для пользователя.</p>
+                </div>
+            </div>
 
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Как работает этот аккордеон?</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>При клике на заголовок панель плавно раскрывается, показывая содержимое. Одновременно может быть открыта только одна панель, остальные автоматически закрываются.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Адаптирован ли он для мобильных устройств?</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Да! Этот аккордеон полностью адаптивен. Он отлично смотрится на любых экранах: от больших мониторов до смартфонов. Размеры элементов и отступы автоматически подстраиваются под размер экрана.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Можно ли открыть несколько панелей одновременно?</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>В текущей версии одновременно открывается только одна панель. Однако код можно легко модифицировать, чтобы разрешить открытие нескольких панелей одновременно.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Как интегрировать это в мой проект?</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <p>Просто скопируйте HTML-структуру, подключите CSS-файл для стилей и JavaScript для функциональности. Вы можете настроить цвета, размеры и анимацию под свой дизайн.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const currentItem = header.parentElement;
+                const isActive = currentItem.classList.contains('active');
+                
+                // Закрываем все панели
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Если текущая панель не была активна, открываем её
+                if (!isActive) {
+                    currentItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
